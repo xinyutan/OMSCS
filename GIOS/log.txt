@@ -1,0 +1,7 @@
+9/9/2020
+
+After spending the entire labor day holiday working on the part 1 of the project, I finally get a sense of how challenging the program is. I made a good decision to take one class this semester.
+
+But I really like the push from the program. Many concepts, if it were not for projects and exams, I would not have taken so much time and effort to try to understand them better. 
+
+I am still struggling with part 2 of the project. But I try to read as many references as I have (three OS books) and actively think about it, I think I am very close of getting a solid grasp of multi-thread programming. 
