@@ -1,0 +1,16 @@
+9/14/2020
+
+I finally finished the project 1. This is a huge relief! Two weeks ago, I seriously doubted whether I can pass the class or not. Looks like I will be fine after all (maybe this will slap my face later when project 3 comes up :)).
+
+Why did I feel project 1 is hard? Looking back, there isn't convoluted logic or anything. Even mutlti-thread programming, which I thought to be really hard, for our purpose, the pattern is very clear (boss-worker pattern, you just maintain a job queue, and make sure adding and popping from that queue isthread-safe using a lock). Looking at my submission pattern, I find that client is much easier for me than the server side, even though the codes are very similar: client is less of a black box than the server - I was clearer about the functions (how it will be used, or little details like what is the return value) I need to write on the client side than the server side. Yep, besides the unfamiliarity with C language and arcane socket API in C, writing code with components black-boxed (and the unseen code uses my code too) is hard for me. 
+
+But I do enjoy working through the projects. It is fun to see something working or behave the way you intended it to. All of the debugging moments, some of them are caused purely by carelessness, but some of them do reveal something about the system I was unawared of.   
+
+
+9/9/2020
+
+After spending the entire labor day holiday working on the part 1 of the project, I finally get a sense of how challenging the program is. I made a good decision to take one class this semester.
+
+But I really like the push from the program. Many concepts, if it were not for projects and exams, I would not have taken so much time and effort to try to understand them better. 
+
+I am still struggling with part 2 of the project. But I try to read as many references as I have (three OS books) and actively think about it, I think I am very close of getting a solid grasp of multi-thread programming. 
