@@ -1,3 +1,22 @@
+10/28/2020
+
+OMG, I finally successfully passed all the tests... What a few days it has been!
+
+On Saturday, I finished almost all of the coding, and I felt pretty good about my approach [! what could be wrong, right, I feel so clear about it]. Then on Sunday I start to submit.. Not passing. Not passing. And I looked back and forth and not knowing why. Sometimes it passes and other times it fails... So typical of multi-threaded programming problems.. But the multi-threading part is clear to me, two queues, protected by mutex, right? That should not be wrong. Then it must have been the intra-process communications part. Okay, I am not proud of my implementations. It is terribly ugly. But from what I understand, there is nothing wrong as well...
+
+So, I was terribly inefficient, without knowing where could be the problem. But after many many hours of debugging - I can finally replicate the problem. Specifically -> when proxy server is multi-threaded, and cache server is single threaded, the client hang; but when proxy server is single threaded, and cache server multi-threaded, the client is good. 
+
+So proxy is wrong? But later I realized that when proxy is single threaded, cache is also pretty much single-threaded, because at any time there is only one request arriving. Here is one hint. And I also realize that somehow cache misses tasks, i.e., it seems that all of the tasks is the same as the last task if there are multiple tasks in the queue.  
+
+Not only did I print out all the elements in the queue, did I realize my mistakes - well, it is my carelessness in assigning char array in C... when char a[] = b, where b is also a char array, it basically assigns b's address! So no wonder all my tasks in the queue is the last task....
+
+And that is it... After I fix it, everything passes.
+
+I worked on this project full time on weekends, and for monday and tuesday, besides working and life, I worked on debugging the rest of time, not even reading on Sunday and Monday (maybe one the first time I did not read before sleeping for the past 3 to 4 years!)..
+
+On Saturday, I thought there would be Eurika moments in debugging this project, or like many other students have said they have almost epiphany moments in this class. But my bug is so trivial... I guess I wish I had been more careful about C's string and pointer manipulation. But I guess there are merits in struggling, even on trivial matters, in that I did think a little bit more carefully about everything in this project...
+
+
 10/21/2020
 
 The midterm and project 1 grades are out. I am okay - I guess it's in my expectations... 
