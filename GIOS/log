@@ -1,3 +1,14 @@
+11/14/2020
+
+I was super excited about project 4, because I really want to learn gRPC. After 7 submissions, I finally passed the part 1. It took me so long to pass not because the part 1 is hard - it is not at all. But 1) I did not have a good C++ dev environment. 2) I was again stuck at some stupid bugs.
+
+About the dev environment, for the first and second C project, I only used vim + TabNine plugin, and it was enough. Part of the reason is that the C project project we have is not overly complicated. There are just a few functions, and I can remember them by heart without problem. gRPC is a little bit different - there are more structures to the code. It is a major cognitive load for me to remember every type and function argument correctly. So I spent lots of time debugging stupid compile error. 
+
+Not until I did this project did I realize how nice my dev environment at work is. The code referencing and code completion are fantastic. Finally, I decided to set up vscode for this project... Thinking that I will have more C++ project for future classes, it is perhaps important for me to get a okay environment. 
+
+But it is a great simple project in terms of getting me familiarize with gRPC from server to client. I would not be able to see each part clearly if there were no such pratical project. 
+
+
 10/28/2020
 
 OMG, I finally successfully passed all the tests... What a few days it has been!
