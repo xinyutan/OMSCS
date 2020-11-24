@@ -1,3 +1,16 @@
+11/24/2020
+
+Hmm, my project 4 passed unexpectedly. It is strange. Well, for project 2 & 3, often it is the local test passed, but autograder has problems. This time, it's reverse. 
+
+After I set up my vscode and changed the themes, it was more fun to code C++. Project 4 is a simple distributed file system. The main point is to synchronize between the inotify thread (locally) and the watcher thread (from server). The main code structure, like how to setup the async RPC, how to set up different threads, is provided (that would be the hardest part of this system). So our task is not so hard. For the actual coding part, it took me two full days (well, I am probably a little bit relaxed) to finish the server side and client side, Sundy night to successfully compile, yesterday to make sure each single call is correct. I know today my main task is to make sure that the whole system is running correctly. It is not. I think the autograder may not be exhaustive. 
+
+I will try to make it work locally these days. 
+
+But anyways, officially, for me, this class is over. I think it is 3 month well-spent and I definitely have a much better grasp of various synchornization (between threads, between processes, between machines). This month feels a little bit more challenging, especially for the third project, because of my new job. But the study and work is complementary in that they teach me different aspects of the computing system. The work sometimes is about understanding a huge system wholistically and also having a good product sense (have not worked long enough to fully grasp the scope of the work). The study is more about a classicial system and an important concept and I need to implement a simpler version of the classifical system using that concept. 
+
+GIOS is a good start. Advanced Operating Systems definitely sounds more challenging, for there is little starter code (I suspect that I will need to set up all different threads and come up the structure like project 4 all by myself). I am not sure if I am up to that task. But I'd like to give it try and see how much I can do. 
+
+
 11/14/2020
 
 I was super excited about project 4, because I really want to learn gRPC. After 7 submissions, I finally passed the part 1. It took me so long to pass not because the part 1 is hard - it is not at all. But 1) I did not have a good C++ dev environment. 2) I was again stuck at some stupid bugs.
