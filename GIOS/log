@@ -1,6 +1,13 @@
 11/24/2020
+update: aha, I know why this morning my file system "doesn't work well locally". Okay, now I am much happier about passing the part 2 the second submission (I am not gaming the system).
 
-Hmm, my project 4 passed unexpectedly. It is strange. Well, for project 2 & 3, often it is the local test passed, but autograder has problems. This time, it's reverse. 
+First off, we need to code the project in a virual linux environment. This morning, I find that when I change the file locally (on my mac system) in the client folder, the change doesn't get updated on the server. That's weird, because I found that inotify thread is triggered.. Then why doesn't client call the right RPC? 
+
+Well, [with the help from class forum], it turns out that I need to change the files in the virual environment. That makes perfect sense now. It's working locally finally!
+
+================================
+
+Hmm, my project 4 passed unexpectedly. It is strange. Well, for project 1 & 3, often it is the local test passed, but autograder has problems. This time, it's reverse. 
 
 After I set up my vscode and changed the themes, it was more fun to code C++. Project 4 is a simple distributed file system. The main point is to synchronize between the inotify thread (locally) and the watcher thread (from server). The main code structure, like how to setup the async RPC, how to set up different threads, is provided (that would be the hardest part of this system). So our task is not so hard. For the actual coding part, it took me two full days (well, I am probably a little bit relaxed) to finish the server side and client side, Sundy night to successfully compile, yesterday to make sure each single call is correct. I know today my main task is to make sure that the whole system is running correctly. It is not. I think the autograder may not be exhaustive. 
 
