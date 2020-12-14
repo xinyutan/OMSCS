@@ -1,4 +1,16 @@
+12/13/2020
+
+Just saw myy final grade is 91, so a secured A. 
+
+I am glad that I took it, because this kind of programming is very hard to pick up at work. I spent most of the time working on projects. For the latter half of the class, because of the new job, which too has a steep learning curve, I did not listen to many lectures. So I feel a little bit lack in my theoretical understanding of the system. 
+
+Passing the last two projects was stressful: I felt like I have not worked that hard for a really long time. But I guess it was those difficult moments and the effort to get through them that make this past three month so worthwhile to me.
+
+Next semester will be even more challenging because of the much harder class (Advanced Operating Systems) and a big project at work. And I am by no means C/C++ experts. I don't know if I can make it... I am trying to listen to lectures now so that during the semester, I only need to focus on the projects and papers :)  
+
+
 11/24/2020
+
 update: aha, I know why this morning my file system "doesn't work well locally". Okay, now I am much happier about passing the part 2 the second submission (I am not gaming the system).
 
 First off, we need to code the project in a virual linux environment. This morning, I find that when I change the file locally (on my mac system) in the client folder, the change doesn't get updated on the server. That's weird, because I found that inotify thread is triggered.. Then why doesn't client call the right RPC? 
