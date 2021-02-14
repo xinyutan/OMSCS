@@ -1,3 +1,18 @@
+### 2/14/2021
+
+Hmm, this class is a little bit more difficult than I thought it would be. The difficulty is in that it sometimes goes really deep into how exactly program excutes. For example, I used to know that when we call a function, something will be pushed to the stack. But what exactly are pushed to stack, what are the registers, I know not clearly.
+
+So I struggled with the project 1 a lot. But I think struggles are good, even though here they are only technical struggles. 
+
+```
+“Even in our sleep, pain which cannot forget
+falls drop by drop upon the heart
+until, in our own despair, against our will,
+comes wisdom through the awful grace of God.”
+
+― Aeschylus
+```
+
 ### 1/25/2021
 
 The class is different from GIOS in at least that the project doesn't seem to require that much of coding. There is a quiz every week. The things taught in this class are completely new to me. I still need to get used to the way it describes a problem and solution. But I think I start to like this class. The quizes and projects are really helpful in deepening my understanding to the contents. 
