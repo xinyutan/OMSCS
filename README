@@ -2,6 +2,17 @@ OMSCS
 
 I officially started the program August 17, 2020. It actually feels pretty normal, maybe because I take MOOCs all the time. This is just a more difficult and systematic MOOC.
 
+2021 Summer
+
+I eventually dropped the Introduction to Information Security for several reasons: 1) I spent a lot more time and energy on the project at work 2) I did not really like the class:
+
+1) Thinking back, I think I did quite a lot on the work project: I coded the serving infrastructure, learned and tried a bit of tensorflow modeling, then migrated the backend to a new infrastructure, and got it "launched". One thing I found helpful is to prototype and to try if I am not sure how something works. Sure, we can't submit these prototyping code, but I find that we have a lot of freedom in testing. So, I just prototyped the whole thing and show the general idea works. So many Saturdays were spent like these. 
+
+2) The class doesn't have heavy programming component, but more on the reading and understanding. I think at this point, I am not really interested in some conceptual understanding, or I don't prefer these type of learning to be in a classroom format any more. 
+
+For the summer, I am going to take Artificial Intelligence (CS 6601). I think I may still have quite a bit learning at work, so it may be better if I take a class that I am familiar with.   
+
+
 2021 Spring
 
 After the meeting with my boss, I think I can't take AOS next semester. I think it over: this project at work, I probably only have this one chance, but I can take AOS anytime. For the next few months, my main focus is to make sure the project at work is a success. But I also want to learn something outside the work: I don't know much about information security, CS-6035: Introduction to Information Security looks to be a good class to fill that knowledge gap, and it looks like a level less difficult than GIOS rather than 2 levels above (AOS), then it is a perfect class. 

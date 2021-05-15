@@ -137,5 +137,148 @@ On designing complicated locking policy: *There more complicated locking becomes
 
 ### Poor performance through lock conflicts
 
+When a thread is holding the mutex, it potentially blocks another thread from making progress. If  the first thread is using all the resources, that is probably fine. However, while holding the mutex, if it ceases to make progress (waiting for the IO), the performance of the system is degraded. 
 
+To avoid such cases, one can lock at a finer granularity, but this causes complexity. Trade-off needs to be considered.
+
+There is an interation between mutexes and the thread scheduler that can produce particularly insidious performance problems. 
+
+
+### Releasing the mutex within a LOCK clause
+
+
+## Using A Condition Variable: Scheduling Shared Resources
+
+A condition variable is used when the programmer wants to schedule the way in which multiple threads access some shared resource.
+
+An example of consumer and producer:
+
+```
+VAR m: Thread.Mutex;
+VAR head: List;
+
+PROCEDURE Consume(): List;
+  VAR topElement: List;
+BEGIN 
+  LOCK m DO 
+    WHILE head = NIL DO Thread.Wait(m, nonEmpty) END;
+    topElement := head;
+    head := head^.next;
+  END;
+  RETURN topElement
+END Consume;
+
+PROCEDURE Produce(newElement: List);
+BEGIN
+  LOCK m DO
+    newElement^.next := head;
+    head := newElement;
+    Thread.Signal(nonEmpty);
+  END
+END
+```
+
+Why use `while` in `WHILE head = NIL DO Thread.Wait(m, nonEmpty) END;`? 1) The semantics of "Signal" do not guarantee that the awoken thread will be the next to lock the mutex. It is possible that some other consumer thread will intervene, lock the mutex, remove the list element and unlock the mutex, before the newly awaken thread can lock the mutex. 2) Re-checking is local to  the SRC design: implementation of "Signal" is permitted to rarely awaken more than one thread.
+
+### Using "Broadcast"
+
+### Spurious wake-ups
+
+This means we wake up the threads that may not be executed: for example, after releasing the lock for writing, we can broadcast the read signals to all read threads, or we only need to wake up one writer thread.
+
+```
+VAR i: INTEGER;
+VAR m: Thread.Mutex;
+VAR cR, cW: Thread.Condition;
+VAR readWaiters: INTEGER;
+
+PROCEDURE AcquireExclusive();
+BEGIN
+  LOCK m DO
+    WHILE i != 0 DO THREAD.Wait(m, cW) END;
+    i := -1;
+  END;
+END AcquireExclusion;
+
+PROCEDURE AcquireShared();
+BEGIN
+  LOCK m DO
+    readWaiters := readWaiters + 1;
+    WHILE i < 0 DO THREAD.Wait(m, cR) END;
+    readWaiters := readWaiters - 1;
+    i := i + 1;
+  END;
+END AcquireShared;
+
+PROCEDURE ReleaseExclusive();
+BEGIN
+  LOCK m DO
+    i := 0;
+    IF readWaiters > 0 THEN
+      Thread.Broadcast(cR);
+    ELSE
+      Thread.Signal(cW);
+    END;
+  END;
+END ReleaseExclusive;
+
+PROCEDURE ReleaseShared();
+BEGIN
+  LOCK m DO
+    i := i - 1;
+    IF i = 0 THEN Thread.Signal(cW) END;
+  END;
+END ReleaseShared;
+```
+
+### Spurious lock conflicts
+
+This happens when in `ReleasedShared()`, we wake up a writing thread through `Thread.Signal(cW)`. However, the lock is still hold by this reader thread (because `Thread.Signal(cW)` is inside the LOCK block).
+
+A simple solution would be to signal when out of the LOCK block:
+
+```
+PROCEDURE ReleaseShared();
+  VAR doSignal: BOOLEAN;
+BEGIN
+  LOCK m DO
+    i := i - 1;
+    doSignal := (i=0);    
+  END;
+  IF doSignal THEN Thread.Signal(cW) END;
+END ReleaseShared;
+```
+
+A more complicated case of spurious lock conflicts when a terminating writer calls "Broadcast". The problem is that only one of the waiting readers at a time can lock the mutex and recheck and increase "i", so on a multi-processor other awoken threads are liable to block trying to lock the mutex. We can correct this by awakening just one reader in "ReleaseExclusive" and have each reader in turn awaken the next:
+
+```
+PROCEDURE AcquireShared();
+BEGIN
+  LOCK m DO
+    readWaiters := readWaiters + 1;
+    WHILE i < 0 DO THREAD.Wait(m, cR) END;
+    readWaiters := readWaiters - 1;
+    i := i + 1;
+  END;
+  Thread.Signal(cR);
+END AcquireShared;
+```
+
+### Starvation
+
+### Complexity
+
+### Deadlock
+
+## Using Fork: Working in Parallel
+
+
+## Building Your Program
+
+
+## Using Alert: Diverting The Flow of Control
+
+
+
+## Additional Techniques
 
